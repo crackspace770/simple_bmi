@@ -2,9 +2,6 @@ package com.fajar.volumebalok
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import com.fajar.volumebalok.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -18,12 +15,27 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             btnCalculate.setOnClickListener {
-               // val inputLength = edPanjang.text.toString().trim()
+
                 val inputWeight= edBerat.text.toString().trim()
                 val inputHeight = edTinggi.text.toString().trim()
 
                 val volume = inputWeight.toDouble() / (inputHeight.toDouble() * inputHeight.toDouble())
                 tvResult.text = volume.toString()
+
+                val state:String =
+                    if ((tvResult.text as String) < 25.toString()){
+                    "Normal"
+                } else if(tvResult.text as String > 25.toString()){
+                    "Overweight"
+                } else if(tvResult.text as String > 35.toString()){
+                    "Obesity"
+                } else if ((tvResult.text as String) < 18.toString()){
+                    "Underweight"
+                }else{
+                    "Undetermined"
+                }
+
+                tvState.text = state
             }
         }
 

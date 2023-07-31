@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">VolumeBalok</string>
+
+    <!-- Priority Level-->
+    <string name="high">High</string>
+    <string name="medium">Medium</string>
+    <string name="low">Low</string>
+
 </resources>
